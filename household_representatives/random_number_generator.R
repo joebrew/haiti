@@ -75,26 +75,38 @@ for (i in 1:7){
 par(mfrow = c(1,1))
 
 # Write to spreadsheet
-setwd("C:/Users/BrewJR/Documents/haiti/random_number_generator")
+setwd("C:/Users/BrewJR/Documents/haiti/household_representatives")
 row.names(mydf) <- NULL
 write.csv(mydf, "spreadsheet_for_krishna.csv", row.names = FALSE)
 
 # Function to generate individual table
 TableFun <- function(hh_number){
-  mydf[hh_number,]
+  x <- mydf[hh_number,]
+  names(x) <- c("Household number",
+                paste0("Household size: ",
+                       1: 7))
+  row.names(x) <- "Person to be interviewed"
+  return(x)
 }
 
 # Function to write individual table to a spreadsheet
 WriteTable <- function(hh_number, out_file = NULL){
+  
+  x <- mydf[hh_number,]
+  names(x) <- c("Household number",
+                paste0("Household size: ",
+                       1: 7))
+  row.names(x) <- "Person to be interviewed"
+  
   if(is.null(out_file)){
-    write.csv(mydf[hh_number,], paste0("hh_number_", hh_number, ".csv"), row.names = FALSE)
+    write.csv(x, paste0("hh_number_", hh_number, ".csv"))
   } else {
-    write.csv(mydf[hh_number,], out_file, row.names = FALSE)
+    write.csv(x, out_file)
   }
 }
 
 # Example of how to write an individual table to a csv
-WriteTable(hh_number = 2032)
+WriteTable(hh_number = 123)
 WriteTable(hh_number = 113)
 WriteTable(hh_number = 508)
 
