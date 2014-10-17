@@ -12,6 +12,10 @@ RandomFun <- function(hh_size = 7){
   }
 
 return(myvec)
+
+# Travis' suggestion:
+# sapply(1:hh_size, function(x) sample(x, size=1, replace=FALSE))
+
 }
 
 # Create dataframe 
