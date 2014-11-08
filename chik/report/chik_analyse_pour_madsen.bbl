@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cottler et~al.(2014)Cottler, Ajinkya, Goldberger, Ghani, Martin, Hu,
+  and Gold]{Cottler2014}
+Linda~B Cottler, Shaun Ajinkya, Bruce~A Goldberger, Mohammad~Asrar Ghani,
+  David~M Martin, Hui Hu, and Mark~S Gold.
+\newblock Prevalence of drug and alcohol use in urban afghanistan:
+  epidemiological data from the afghanistan national urban drug use study
+  ({ANUDUS}).
+\newblock \emph{The Lancet Global Health}, 2\penalty0 (10):\penalty0
+  e592--e600, oct 2014.
+\newblock \doi{10.1016/s2214-109x(14)70290-6}.
+\newblock URL \url{http://dx.doi.org/10.1016/S2214-109X(14)70290-6}.
+
+\end{thebibliography}

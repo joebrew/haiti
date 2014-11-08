@@ -1,0 +1,5 @@
+\select@language {english}
+\contentsline {section}{Final project: research proposal}{2}{Doc-Start}
+\contentsline {subsection}{Background}{2}{section*.1}
+\contentsline {subsection}{Methods}{2}{section*.1}
+\contentsline {subsection}{Conclusion}{2}{section*.1}

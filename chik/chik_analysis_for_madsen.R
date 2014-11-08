@@ -159,11 +159,126 @@ title(sub = "Distribution of observations by sex")
 ######
 # AGE
 ######
-my_colors <- adjustcolor(colorRampPalette(c("darkblue", "white", "darkgreen"))(20), alpha.f = 0.6)
-hist(df$age, breaks = 20,
-     col = my_colors,
-     xlab = "Age (ans)",
-     ylab = "Fréquence",
-     main = "Distribution de l'age des élèves")
+ages <- unique(sort(df$age))
+my_colors <- adjustcolor(colorRampPalette(c("darkblue", "grey", "darkgreen"))(length(ages)), alpha.f = 0.6)
+mybp <- barplot(table(df$age), col = my_colors,
+        xlab = "Age (ans)",
+        ylab = "Fréquence",
+        ylim = c(0, max(table(df$age)*1.1)),
+        main = "Distribution de l'age des élèves",
+        border = NA,
+        space = 0)
+text(x = mybp[,1],
+     y = table(df$age),
+     pos = 3,
+     labels = table(df$age),
+     cex = 0.75)
 title(sub = "Distribution of observations by age")
-barplot(table(df$age))
+box("plot")
+
+######
+# GRADE
+######
+grades <- unique(sort(df$grade))
+my_colors <- adjustcolor(colorRampPalette(c("darkblue", "grey", "darkgreen"))(length(grades)), alpha.f = 0.6)
+mybp <- barplot(table(df$grade), col = my_colors,
+                xlab = "niveau scolaire",
+                ylab = "Fréquence",
+                ylim = c(0, max(table(df$grade)*1.1)),
+                main = "Distribution du niveau scolaire des élèves",
+                border = "grey")
+text(x = mybp[,1],
+     y = table(df$grade),
+     pos = 3,
+     labels = table(df$grade),
+     cex = 0.75)
+text(x = mybp[,1],
+     y = table(df$grade),
+     pos = 1,
+     labels = paste0(100* round(prop.table(table(df$grade)), digits = 4)," %"),
+     cex = 1.5)
+title(sub = "Distribution of school level by grade")
+box("plot")
+
+#######
+# TEMPERATURE
+#######
+my_colors <- adjustcolor(colorRampPalette(c("darkblue", "grey", "darkgreen"))(10), alpha.f = 0.3)
+myhist <- hist(df$temperature, breaks = 10,
+               col = my_colors,
+               border = "grey",
+               xlab = "Température (c)",
+               ylab = "Fréquence",
+               main = "Température des élèves")
+polygon(x = c(38,50, 50, 38),
+        y = c(0, 0, 100, 100),
+        col = adjustcolor("darkred", alpha.f = 0.1),
+        border = NA)
+hist <- hist(df$temperature, breaks = 10,
+               col = my_colors,
+               border = "grey", add = TRUE)
+legend(x = "topleft",
+       fill = adjustcolor("darkred", alpha.f = 0.1),
+       border = NA,
+       bty = "n",
+       legend = "Fièvre")
+box("plot")
+
+#######
+# age by chikv_rst
+#######
+x <- table(df$chikv_rst, 
+      df$age)
+barplot(x,
+        col = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+        legend = TRUE,
+        border = "darkgrey",
+        space = 0,
+        ylim = c(0,max(x)*1.1))
+box("plot")
+title(main = "Résultats des tests CHIKV par age")
+title(sub = "CHIKV tests by age")
+
+#######
+# sex by chikv_rst
+#######
+x <- table(df$chikv_rst, 
+           df$sex)
+barplot(x,
+        col = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+        legend = TRUE,
+        border = "darkgrey",
+        ylim = c(0,max(x)*1.1))
+box("plot")
+title(main = "Résultats des tests CHIKV par sexe")
+title(sub = "CHIKV tests by sex")
+# chisq.test(x)
+
+######
+# % MATCHED
+######
+x <- table(is.na(df$chikv_rst))
+bp <- barplot(x,
+        names.arg = c("Associée dans les deux feuilles de calculs",
+                      "Aucune association"),
+        col = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+        ylim = c(0, max(table(is.na(df$chikv_rst)))*1.1),
+        border = "grey")
+text(x = mybp[,1],
+     y = table(is.na(df$chikv_rst)),
+     pos = 3,
+     labels = table(is.na(df$chikv_rst)),
+     cex = 0.75)
+text(x = mybp[,1],
+     y = table(is.na(df$chikv_rst)),
+     pos = 1,
+     labels = paste0(100* round(prop.table(table(is.na(df$chikv_rst))), digits = 4)," %"),
+     cex = 1.5)
+box("plot")
+title(main = "Élèves avec resultats laboratoires")
+title(sub = "Students with laboratory results")
+
+######
+# SAVE IMAGE IN PRIVATE FOLDER
+######
+save.image('/home/joebrew/Documents/private_data/haiti/chik/analyse_pour_madsen.RData')

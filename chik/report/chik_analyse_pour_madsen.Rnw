@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[center]{titlesec}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+%\usepackage{mathtools}
+
+\usepackage[sort, numbers]{natbib}
+
+
+%
+%\setlength{\columnseprule}{0.4pt}
+%\setlength{\footskip}{20pt}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[C]{Valéry Madsen Beau de Rochars $\bullet$ Joe Brew }
+\fancyfoot[C]{  $\bullet$ CHIKV \bullet$  }
+\renewcommand\headrulewidth{1pt}
+\renewcommand\footrulewidth{1pt}
+\pagestyle{fancy}
+
+%
+
+\setlength{\columnsep}{1.5cm}
+%\setlength{\columnseprule}{0.4pt}
+
+%\MakeOuterQuote{"}
+
+
+
+\graphicspath{ {/home/joebrew/Documents/haiti/chik/report} }
+
+%the next two lines adjust the third, centered section of the exec sum
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\begin{document}
+\SweaveOpts{concordance=TRUE, echo=FALSE, results = hide}
+
+\title{\textbf{Première analyse des données du chikungunya}}
+\author{Joe Brew}
+
+
+\maketitle
+
+\emph{
+Ceci est une analyse préliminaire des données du chikungunya (CHIKV)
+
+}
+\tableofcontents
+
+\vspace{20mm}
+
+\begin{center}
+\includegraphics[width=2cm]{uf}
+\end{center}
+
+
+\newgeometry{margin=2.5cm}
+%\fancyhfoffset[E,O]{0pt}
+<<>>=
+if(Sys.info()["sysname"] == "Windows"){
+  public <- 'C:/Users/BrewJR/Documents/haiti/chik'
+  private <- 'C:/Users/BrewJR/Documents/private_data/haiti/chik'
+} else {
+  public <- '/home/joebrew/Documents/haiti/chick'
+  private <- '/home/joebrew/Documents/private_data/haiti/chik'
+}
+load('/home/joebrew/Documents/private_data/haiti/chik/analyse_pour_madsen.RData')
+
+@
+
+%------------------------------------------
+\section*{Final project: research proposal}
+\addcontentsline{toc}{section}{Final project: research proposal}
+%------------------------------------------
+\hrulefill
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
+
+%------------------------------------------
+\subsection*{Background}
+\addcontentsline{toc}{subsection}{Background}
+%------------------------------------------
+
+\lettrine[nindent=0em,lines=3]{B}{la} bla bla bla.\cite{Cottler2014} \blindtext 
+
+%------------------------------------------
+\subsection*{Methods}
+\addcontentsline{toc}{subsection}{Methods}
+%------------------------------------------
+\blindtext
+
+\begin{center}
+<<fig = TRUE, results=hide>>=
+my_number <- 100
+x <- 1:my_number
+my_colors <- colorRampPalette(c("green", "blue"))(my_number)
+barplot(x, col = my_colors, border = NA, space = 0)
+box("plot")
+title(main = "main title", sub = "subtitle", line = 0.5,
+      font.main = 1, font.sub = 1)
+@
+\end{center}
+
+%------------------------------------------
+\subsection*{Conclusion}
+\addcontentsline{toc}{subsection}{Conclusion}
+%------------------------------------------
+\blindtext
+
+
+
+
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+%----------------------------------------------------------------------------------------
+%  REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\newpage
+\bibliographystyle{unsrtnat}
+\bibliography{bibliography}
+
+
+\end{document}
