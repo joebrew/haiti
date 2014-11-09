@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.11)  8 NOV 2014 18:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.11)  8 NOV 2014 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -845,11 +845,19 @@ e
 
 (./chik_analyse_pour_madsen-concordance.tex)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 54.
+(Font)              <12> on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 54.
+(Font)              <8> on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 54.
+(Font)              <6> on input line 56.
+
+<chik_analyse_pour_madsen-002.pdf, id=34, 433.62pt x 180.675pt>
+File: chik_analyse_pour_madsen-002.pdf Graphic file (type pdf)
+
+<use chik_analyse_pour_madsen-002.pdf>
+Package pdftex.def Info: chik_analyse_pour_madsen-002.pdf used on input line 58
+.
+(pdftex.def)             Requested size: 344.005pt x 143.34369pt.
  (./chik_analyse_pour_madsen.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 3.
@@ -858,14 +866,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout5 = `chik_analyse_pour_madsen.toc'.
 
 
-<uf.png, id=23, 321.2pt x 328.22626pt>
+<uf.png, id=44, 321.2pt x 328.22626pt>
 File: uf.png Graphic file (type png)
  <use uf.png>
-Package pdftex.def Info: uf.png used on input line 63.
+Package pdftex.def Info: uf.png used on input line 66.
 (pdftex.def)             Requested size: 56.9055pt x 58.14662pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./uf.png>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./chik_analyse_pour_madsen
+-002.pdf> <./uf.png>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: <default>
@@ -901,15 +910,19 @@ Package pdftex.def Info: uf.png used on input line 63.
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 81.
+(hyperref)                be the same. Added a new anchor on input line 84.
 
-<chik_analyse_pour_madsen-002.pdf, id=35, 433.62pt x 433.62pt>
-File: chik_analyse_pour_madsen-002.pdf Graphic file (type pdf)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 87.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 87.
+<chik_analyse_pour_madsen-003.pdf, id=59, 433.62pt x 289.08pt>
+File: chik_analyse_pour_madsen-003.pdf Graphic file (type pdf)
 
-<use chik_analyse_pour_madsen-002.pdf>
-Package pdftex.def Info: chik_analyse_pour_madsen-002.pdf used on input line 93
-.
-(pdftex.def)             Requested size: 212.41261pt x 212.4161pt.
+<use chik_analyse_pour_madsen-003.pdf>
+Package pdftex.def Info: chik_analyse_pour_madsen-003.pdf used on input line 12
+1.
+(pdftex.def)             Requested size: 472.03123pt x 314.70277pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -920,60 +933,113 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.111 \newpage
+l.124 \newpage
               
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 [2
 
- <./chik_analyse_pour_madsen-002.pdf>] (./chik_analyse_pour_madsen.bbl
-LaTeX Font Info:    Try loading font information for T1+aett on input line 18.
+ <./chik_analyse_pour_madsen-003.pdf>]
+<chik_analyse_pour_madsen-004.pdf, id=80, 433.62pt x 252.945pt>
+File: chik_analyse_pour_madsen-004.pdf Graphic file (type pdf)
 
-(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
+<use chik_analyse_pour_madsen-004.pdf>
+Package pdftex.def Info: chik_analyse_pour_madsen-004.pdf used on input line 14
+7.
+(pdftex.def)             Requested size: 472.03123pt x 275.36493pt.
+
+<chik_analyse_pour_madsen-005.pdf, id=81, 433.62pt x 216.81pt>
+File: chik_analyse_pour_madsen-005.pdf Graphic file (type pdf)
+
+<use chik_analyse_pour_madsen-005.pdf>
+Package pdftex.def Info: chik_analyse_pour_madsen-005.pdf used on input line 17
+0.
+(pdftex.def)             Requested size: 472.03123pt x 236.02708pt.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.116 \end{document}
+l.173 \setkeys
+              {Gin}{width=0.45\textwidth}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[3 <./chik_analyse_pour_madsen-004.pdf> <./chik_analyse_pour_madsen-005.pdf>]
+<chik_analyse_pour_madsen-006.pdf, id=104, 433.62pt x 216.81pt>
+File: chik_analyse_pour_madsen-006.pdf Graphic file (type pdf)
+
+<use chik_analyse_pour_madsen-006.pdf>
+Package pdftex.def Info: chik_analyse_pour_madsen-006.pdf used on input line 19
+4.
+(pdftex.def)             Requested size: 472.03123pt x 236.02708pt.
+
+<chik_analyse_pour_madsen-007.pdf, id=105, 433.62pt x 180.675pt>
+File: chik_analyse_pour_madsen-007.pdf Graphic file (type pdf)
+
+<use chik_analyse_pour_madsen-007.pdf>
+Package pdftex.def Info: chik_analyse_pour_madsen-007.pdf used on input line 21
+7.
+(pdftex.def)             Requested size: 472.03123pt x 196.68922pt.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.220 \setkeys
+              {Gin}{width=0.45\textwidth}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[4 <./chik_analyse_pour_madsen-006.pdf> <./chik_analyse_pour_madsen-007.pdf>]
+<chik_analyse_pour_madsen-008.pdf, id=129, 433.62pt x 289.08pt>
+File: chik_analyse_pour_madsen-008.pdf Graphic file (type pdf)
+
+<use chik_analyse_pour_madsen-008.pdf>
+Package pdftex.def Info: chik_analyse_pour_madsen-008.pdf used on input line 26
+4.
+(pdftex.def)             Requested size: 472.03123pt x 314.70277pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 282.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.282 \end{document}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-[3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 116.
+[5 <./chik_analyse_pour_madsen-008.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 282.
  (./chik_analyse_pour_madsen.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 116.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 116.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 282.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 282.
 Package rerunfilecheck Info: File `chik_analyse_pour_madsen.out' has not change
 d.
-(rerunfilecheck)             Checksum: 89EBD92F76F6455EABD0E9641CFEBCCD;229.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 116.
+(rerunfilecheck)             Checksum: 21011A2D202B3D482B975917E51FDE4B;574.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 282.
  ) 
 Here is how much of TeX's memory you used:
- 8367 strings out of 493304
- 119801 string characters out of 6139870
- 231745 words of memory out of 5000000
- 11656 multiletter control sequences out of 15000+600000
- 36248 words of font info for 73 fonts, out of 8000000 for 9000
+ 8386 strings out of 493304
+ 120648 string characters out of 6139870
+ 225655 words of memory out of 5000000
+ 11660 multiletter control sequences out of 15000+600000
+ 40638 words of font info for 80 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 35i,10n,43p,244b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,10n,43p,492b,412s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmtt10.pfb>
-Output written on chik_analyse_pour_madsen.pdf (3 pages, 135558 bytes).
+/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb>
+Output written on chik_analyse_pour_madsen.pdf (5 pages, 402953 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 47 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 181 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 8 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 

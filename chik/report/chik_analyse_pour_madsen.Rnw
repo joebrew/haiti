@@ -45,28 +45,14 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE, echo=FALSE, results = hide}
 
-\title{\textbf{Première analyse des données du chikungunya}}
-\author{Joe Brew}
-
-
-\maketitle
-
-\emph{
-Ceci est une analyse préliminaire des données du chikungunya (CHIKV)
-
-}
-\tableofcontents
-
-\vspace{20mm}
-
-\begin{center}
-\includegraphics[width=2cm]{uf}
-\end{center}
-
-
-\newgeometry{margin=2.5cm}
-%\fancyhfoffset[E,O]{0pt}
 <<>>=
+######
+# Attach packages
+#######
+library(gdata)
+library(dplyr)
+library(maptools)
+library(rgdal)
 if(Sys.info()["sysname"] == "Windows"){
   public <- 'C:/Users/BrewJR/Documents/haiti/chik'
   private <- 'C:/Users/BrewJR/Documents/private_data/haiti/chik'
@@ -78,9 +64,39 @@ load('/home/joebrew/Documents/private_data/haiti/chik/analyse_pour_madsen.RData'
 
 @
 
+
+\title{\textbf{Première analyse des données du chikungunya}}
+\author{Joe Brew}
+
+
+\maketitle
+
+\begin{center}
+<<height = 2.5, fig = TRUE>>=
+par(mar = c(0,0,0,0))
+my_colors <- adjustcolor(colorRampPalette(c( "grey", "darkgreen"))(nrow(haiti3)), alpha.f = 0.7)
+my_colors <- sample(my_colors, length(my_colors))
+plot(haiti3,
+     border = NA,
+     col = my_colors)
+@
+\end{center}
+
+\tableofcontents
+
+%\vspace{20mm}
+
+\begin{center}
+\includegraphics[width=2cm]{uf}
+\end{center}
+
+
+\newgeometry{margin=2.5cm}
+%\fancyhfoffset[E,O]{0pt}
+
 %------------------------------------------
-\section*{Final project: research proposal}
-\addcontentsline{toc}{section}{Final project: research proposal}
+\section*{Résumé des données de chikungunya}
+\addcontentsline{toc}{section}{Résumé des données de chikungunya}
 %------------------------------------------
 \hrulefill
 
@@ -88,36 +104,358 @@ load('/home/joebrew/Documents/private_data/haiti/chik/analyse_pour_madsen.RData'
 \setkeys{Gin}{width=0.45\textwidth}
 
 %------------------------------------------
-\subsection*{Background}
-\addcontentsline{toc}{subsection}{Background}
+\subsection*{Panorama}
+\addcontentsline{toc}{subsection}{Panorama}
 %------------------------------------------
 
-\lettrine[nindent=0em,lines=3]{B}{la} bla bla bla.\cite{Cottler2014} \blindtext 
+\lettrine[nindent=0em,lines=3]{C}{eci} est une analyse préliminaire des données du chikungunya (CHIKV).  Il s'agit d'un résumé court des documents envoyés a Joe par Madsen le 6 de novembre, 2014, répondant spécifiquement aux sujets délignés par Madsen le même jour.\footnote{1. First merge them by Child code 2. Round a first analysis on the following variables Sex, age, grade, temperature, Age X CHIKV RST, Sex X Age X CHIKV RST}
+
+\vfill
+\columnbreak
+%------------------------------------------
+\subsection*{Introduction}
+%------------------------------------------
+
+
+This is a preliminary analysis of the chikungunya data.  It consists of a brief summary of the documents which Madsen sent to Joe on November 6, 2014, responding specifically to the questions Madsen laid out in his email of the same date.  
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
+
 
 %------------------------------------------
-\subsection*{Methods}
-\addcontentsline{toc}{subsection}{Methods}
+\subsection*{Sexe}
+\addcontentsline{toc}{subsection}{Sexe}
 %------------------------------------------
-\blindtext
+Une majorité petite des observations appartiennent à des filles (54\%).
 
+\vfill
+\columnbreak
+
+%------------------------------------------
+\subsection*{Sex}
+%------------------------------------------
+A small majority of observations are from girls (54\%).
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
 \begin{center}
-<<fig = TRUE, results=hide>>=
-my_number <- 100
-x <- 1:my_number
-my_colors <- colorRampPalette(c("green", "blue"))(my_number)
-barplot(x, col = my_colors, border = NA, space = 0)
+<<fig = TRUE, results=hide, height = 4>>=
+######
+# SEX
+######
+table(df$sexe)
+mybp <- barplot(table(df$sexe),
+                ylim = c(0, max(table(df$sexe))*1.2),
+                col = adjustcolor(c("darkblue", "darkgreen"),
+                                  alpha.f = 0.4),
+                border = "grey")
+text(x = mybp[,1],
+     y = table(df$sexe),
+     pos = 1,
+     labels = paste0(100* round(prop.table(table(df$sexe)), digits = 4)," %"),
+     cex = 1.5)
+text(x = mybp[,1],
+     y = table(df$sexe),
+     pos = 3,
+     labels = paste0(table(df$sexe), " élèves"),
+     cex = 0.75)
 box("plot")
-title(main = "main title", sub = "subtitle", line = 0.5,
-      font.main = 1, font.sub = 1)
+title(main = "Distribution des observations par sexe")
+
 @
 \end{center}
 
-%------------------------------------------
-\subsection*{Conclusion}
-\addcontentsline{toc}{subsection}{Conclusion}
-%------------------------------------------
-\blindtext
+\newpage
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
 
+
+%------------------------------------------
+\subsection*{Age}
+\addcontentsline{toc}{subsection}{Age}
+%------------------------------------------
+Les élèves ont entre 3 et 22 ans (écart interquartile de 7 a 13 ans)
+
+\vfill
+\columnbreak
+
+%------------------------------------------
+\subsection*{Age}
+%------------------------------------------
+Students range from between 3 and 22 years of age (interquartile range of 7 to 13).
+
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+\begin{center}
+<<fig = TRUE, results=hide, height = 3.5>>=
+######
+# AGE
+######
+ages <- unique(sort(df$age))
+my_colors <- adjustcolor(colorRampPalette(c("darkblue", "grey", "darkgreen"))(length(ages)), alpha.f = 0.6)
+mybp <- barplot(table(df$age), col = my_colors,
+        xlab = "Age (ans)",
+        ylab = "Fréquence",
+        ylim = c(0, max(table(df$age)*1.2)),
+        main = "Distribution de l'age des élèves",
+        border = NA,
+        space = 0)
+text(x = mybp[,1],
+     y = table(df$age),
+     pos = 3,
+     labels = table(df$age),
+     cex = 0.75)
+box("plot")
+@
+\end{center}
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
+
+
+%------------------------------------------
+\subsection*{Grade}
+\addcontentsline{toc}{subsection}{Grade}
+%------------------------------------------
+Il y a une distribution presque égale entre les élèves de primaire et secondaire; moins de 20\% viennent de kinder.  
+
+\vfill
+\columnbreak
+
+%------------------------------------------
+\subsection*{Grade}
+%------------------------------------------
+There is a nearly even distribution of students in primary and secondary school; fewer than 20\% come from kindergarten.
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+\begin{center}
+<<fig = TRUE, results=hide, height = 3>>=
+
+######
+# GRADE
+######
+grades <- unique(sort(df$grade))
+my_colors <- adjustcolor(colorRampPalette(c("darkblue", "grey", "darkgreen"))(length(grades)), alpha.f = 0.6)
+mybp <- barplot(table(df$grade), col = my_colors,
+                xlab = "niveau scolaire",
+                ylab = "Fréquence",
+                ylim = c(0, max(table(df$grade)*1.25)),
+                main = "Distribution du niveau scolaire des élèves",
+                border = "grey",
+                cex.axis = 0.8)
+text(x = mybp[,1],
+     y = table(df$grade),
+     pos = 3,
+     labels = table(df$grade),
+     cex = 0.75)
+text(x = mybp[,1],
+     y = table(df$grade),
+     pos = 1,
+     labels = paste0(100* round(prop.table(table(df$grade)), digits = 4)," %"),
+     cex = 1.5)
+box("plot")
+
+@
+\end{center}
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
+
+
+
+%------------------------------------------
+\subsection*{Température}
+\addcontentsline{toc}{subsection}{Température}
+%------------------------------------------
+Une majorité des élèves (170 de 270) avaient une température élévée (plus de 38 C).
+
+\vfill
+\columnbreak
+
+%------------------------------------------
+\subsection*{Temperature}
+%------------------------------------------
+A majority of students (170 of 270) had an elevated temperature (greater than 38 C).
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+\begin{center}
+<<fig = TRUE, results=hide, height = 3>>=
+my_colors <- adjustcolor(colorRampPalette(c("darkblue", "grey", "darkgreen"))(10), alpha.f = 0.3)
+myhist <- hist(df$temperature, breaks = 10,
+               col = my_colors,
+               border = "grey",
+               xlab = "Température (c)",
+               ylab = "Fréquence",
+               main = "Température des élèves")
+polygon(x = c(38,50, 50, 38),
+        y = c(0, 0, 100, 100),
+        col = adjustcolor("darkred", alpha.f = 0.1),
+        border = NA)
+hist <- hist(df$temperature, breaks = 10,
+               col = my_colors,
+               border = "grey", add = TRUE)
+legend(x = "topleft",
+       fill = adjustcolor("darkred", alpha.f = 0.1),
+       border = NA,
+       bty = "n",
+       legend = "Fièvre")
+box("plot")
+
+
+
+@
+\end{center}
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
+
+
+
+%------------------------------------------
+\subsection*{Associations entre les deux feuilles de calcul}
+\addcontentsline{toc}{subsection}{Associations entre les deux feuilles de calcul}
+%------------------------------------------
+\textbf{Important:} Des 270 élèves, seulement 68 sont associés avec un résultat de test (les autres 55 résultats ont des "child codes" qui n'éxistent pas dans le roster des élèves).  Par conséquent, les  mises en tableaux qui suivent ne se prêtent pas a l'interprétation sans de la précaution.
+\vfill
+\columnbreak
+
+%------------------------------------------
+\subsection*{Matches between the two spreadsheets}
+%------------------------------------------
+\textbf{Important:} Of the 270 students, only 67 are associated with a test result (the other 55 test results have "child codes" which do not exist in the student roster).  Therefore, the following cross-tabulations should be interpreted with caution.
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+\begin{center}
+<<fig = TRUE, results=hide, height = 2.5>>=
+par(mar = c(2,2,2,2))
+x <- table(is.na(df$chikv_rst))
+bp <- barplot(x,
+        names.arg = c("Associée dans les deux feuilles de calculs",
+                      "Aucune association"),
+        col = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+        ylim = c(0, max(table(is.na(df$chikv_rst)))*1.25),
+        border = "grey",
+        cex.names = 0.6)
+text(x = mybp[,1],
+     y = table(is.na(df$chikv_rst)),
+     pos = 3,
+     labels = table(is.na(df$chikv_rst)),
+     cex = 0.75)
+text(x = mybp[,1],
+     y = table(is.na(df$chikv_rst)),
+     pos = 1,
+     labels = paste0(100* round(prop.table(table(is.na(df$chikv_rst))), digits = 4)," %"),
+     cex = 1.5)
+box("plot")
+title(main = "Élèves avec resultats laboratoires")
+
+
+@
+\end{center}
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
+
+
+
+
+
+%------------------------------------------
+\subsection*{Résultats de test par age}
+\addcontentsline{toc}{subsection}{Résultats de test par age}
+%------------------------------------------
+Il est dificile de déduire des réponses à cette question étant donné que les deux feuilles de calcul n'avaient pas beaucoup de coincidences.
+
+\vfill
+\columnbreak
+
+%------------------------------------------
+\subsection*{Test results by age}
+%------------------------------------------
+It is difficult to deduce answers to this question given that the two spreadsheets did not have many matches.  
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
+
+
+%------------------------------------------
+\subsection*{Résultats de test par sexe}
+\addcontentsline{toc}{subsection}{Résultats de test par sexe}
+%------------------------------------------
+Il est aussi dificile de faire des conclusions sur un possible rapport entre le sexe et les résultats de tests en raison de la manque des associations entre les deux feuilles de calcul.
+
+\vfill
+\columnbreak
+
+%------------------------------------------
+\subsection*{Test results by sex}
+%------------------------------------------
+It is equally difficult to make conclusions about a possible relationship between sex and test results due to the lack of matches between the two spreadsheets.
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+\begin{center}
+<<fig = TRUE, results=hide, height = 4>>=
+par(mfrow = c(1,2))
+#######
+# sex by chikv_rst
+#######
+x <- table(df$chikv_rst, 
+           df$sex)
+mybp <- barplot(x,
+        col = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+        #legend = TRUE,
+        border = "darkgrey",
+        ylim = c(0,max(x)*1.6))
+box("plot")
+title(main = "Résultats des tests CHIKV par sexe",
+      cex.main = 0.7)
+# chisq.test(x)
+text(x = mybp,
+     y = 35,
+     pos = 3,
+     labels = x[2,],
+     cex = 0.75)
+text(x = mybp,
+     y = 30,
+     pos = 1,
+     labels = paste0(100* round(prop.table(x,2), digits = 4)[2,]," %"),
+     cex = 1)
+legend("topright",
+       fill = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+       legend = c("Negative", "Positive"),
+       bty = "n",
+       border = "grey")
+######
+#######
+# age by chikv_rst
+#######
+x <- table(df$chikv_rst, 
+      df$age)
+barplot(x,
+        col = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+        #legend = TRUE,
+        border = "darkgrey",
+        space = 0,
+        ylim = c(0,max(x)*1.1))
+box("plot")
+title(main = "Résultats des tests CHIKV par age",
+      cex.main = 0.7)
+legend("topright",
+       fill = adjustcolor(c("darkblue", "darkgreen"), alpha.f = 0.4),
+       legend = c("Negative", "Positive"),
+       bty = "n",
+       border = "grey")
+@
+\end{center}
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.45\textwidth}
 
 
 
@@ -127,9 +465,9 @@ title(main = "main title", sub = "subtitle", line = 0.5,
 %----------------------------------------------------------------------------------------
 %  REFERENCE LIST
 %----------------------------------------------------------------------------------------
-\newpage
-\bibliographystyle{unsrtnat}
-\bibliography{bibliography}
-
+% \newpage
+% \bibliographystyle{unsrtnat}
+% \bibliography{bibliography}
+% 
 
 \end{document}
