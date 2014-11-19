@@ -78,6 +78,16 @@ for (i in 1:7){
 }
 par(mfrow = c(1,1))
 
+# Fix up the names to format using Avery's software
+# mydf$hh_size_1 <- paste("Size = 1 | Rep = ",  mydf$hh_size_1)
+# mydf$hh_size_2 <- paste("Size = 2 | Rep = ",  mydf$hh_size_2)
+# mydf$hh_size_3 <- paste("Size = 3 | Rep = ",  mydf$hh_size_3)
+# mydf$hh_size_4 <- paste("Size = 4 | Rep = ",  mydf$hh_size_4)
+# mydf$hh_size_5 <- paste("Size = 5 | Rep = ",  mydf$hh_size_5)
+# mydf$hh_size_6 <- paste("Size = 6 | Rep = ",  mydf$hh_size_6)
+# mydf$hh_size_7 <- paste("Size = 7 | Rep = ",  mydf$hh_size_7)
+
+
 # Write to spreadsheet
 setwd("C:/Users/BrewJR/Documents/haiti/household_representatives")
 row.names(mydf) <- NULL
