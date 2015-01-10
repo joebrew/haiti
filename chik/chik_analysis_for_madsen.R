@@ -21,7 +21,9 @@ setwd(private)
 ######
 # Read in the 2 datasets sent by Madsen
 ######
-df1 <- read.xls("Clean_Copy of Chikun-V.xlsx",
+# df1 <- read.xls("Clean_Copy of Chikun-V.xlsx",
+#                 stringsAsFactors = FALSE)
+df1 <- read.xls("Copy of Dr M Chikun-V 12-10-14.xlsx",
                 stringsAsFactors = FALSE)
 df2 <- read.xls("Copy of CHIKV_DATA.xls",
                 stringsAsFactors = FALSE)
@@ -113,17 +115,29 @@ df1$associatd_symp <- gsub("D°|D °|°|[:]|[.]", "", df1$associatd_symp)
 df1$associatd_symp <- gsub("^\\s+|\\s+$", "", df1$associatd_symp)
 df1$associatd_symp[which(Missing(df1$associatd_symp))] <- NA
 
+#####
+# Clean up grade
+#####
+library(car)
+df1$grade <- Recode(df1$grade,
+                    "'secondary' = 'Secondary';
+                    'SecondaryL' = 'Secondary'")
 ######
 # Merge by child code
 ######
-df2$child_code <- df2$child_code_no
+df2$code <- df2$child_code_no
 df2$child_code_no <- NULL
 
-df <- merge(x = df1,
-            y = df2,
-            by = "child_code",
-            all.x = TRUE,
-            all.y = FALSE)
+library(dplyr)
+df <- left_join(x = df1,
+                y = df2,
+                by = c("code", "site", "chikv_rst"))
+
+#####
+# Clean up chikv_rst
+#####
+df$chikv_rst[which(grepl("ositive|ositve", df$chikv_rst))] <- "Positive"
+
 
 ####################################################################
 # DATA CLEANING DONE
@@ -150,7 +164,7 @@ text(x = mybp[,1],
 text(x = mybp[,1],
      y = table(df$sexe),
      pos = 3,
-     labels = paste0(table(df$sexe), " élèves"),
+     labels = paste0(table(df$sexe), " eleves"),
      cex = 0.75)
 box("plot")
 title(main = "Distribution des observations par sexe")
