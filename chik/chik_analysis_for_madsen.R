@@ -128,6 +128,20 @@ df1$grade <- Recode(df1$grade,
 df2$code <- df2$child_code_no
 df2$child_code_no <- NULL
 
+# See how many can merge
+df2$joinable <- NA
+for (i in 1:nrow(df2)){
+  df2$joinable[i] <- 
+    df2$code[i] %in% df1$code
+}
+
+df1$joinable <- NA
+for (i in 1:nrow(df1)){
+  df1$joinable[i] <- 
+    df1$code[i] %in% df2$code
+}
+
+
 library(dplyr)
 df <- left_join(x = df1,
                 y = df2,

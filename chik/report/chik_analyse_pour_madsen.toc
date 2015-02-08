@@ -6,5 +6,5 @@
 \contentsline {subsection}{Grade}{3}{section*.1}
 \contentsline {subsection}{Temp\IeC {\'e}rature}{4}{section*.1}
 \contentsline {subsection}{Associations entre les deux feuilles de calcul}{4}{section*.1}
-\contentsline {subsection}{R\IeC {\'e}sultats de test par age}{5}{section*.1}
+\contentsline {subsection}{R\IeC {\'e}sultats de test par age}{4}{section*.1}
 \contentsline {subsection}{R\IeC {\'e}sultats de test par sexe}{5}{section*.1}
