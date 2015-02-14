@@ -362,6 +362,42 @@ gadm <- function(country = "USA",
 }
 
 gadm(country = "haiti", level = 3)
+
+#####
+# MADSEN'S FEB 2015 REQUEST
+#####
+
+# Make age range
+df$age_range <- ifelse(df$age <3, NA,
+                       ifelse(df$age <6, "03-05",
+                              ifelse(df$age < 12, "06-11",
+                                     ifelse(df$age >= 12, "12+",
+                                            NA))))
+
+# Bin temp
+df$temperature_range <- ifelse(df$temperature < 37.5, "00-37.5",
+                        ifelse(df$temperature < 38.5, "37.5-38.5",
+                               ifelse(df$temperature < 40, "38.5-40",
+                                      ifelse(df$temperature >= 40, "40+", 
+                                             NA))))
+
+# symptoms
+df$sym <- ifelse(is.na(df$associatd_symp), FALSE, TRUE)
+df$sym <- ifelse(df$sym, "Symptomatic", "Asymptomatic")
+
+# Dx
+df$chikv <- ifelse(df$chikv == "Positive", TRUE, FALSE)
+df$chikv[which(is.na(df$chikv))] <- FALSE
+df$chikv <- ifelse(df$chikv, "ChikV Positive", "ChikV Negative")
+
+##########
+# TABULATE FOR MADSEN
+##########
+x <- table(df$chikv, df$age_range, df$temperature_range df$sex)
+ftable(x)
+
+x <- table(df$chikv, df$sym, df$age_range, df$sex)
+ftable(x)
 ######
 # SAVE IMAGE IN PRIVATE FOLDER
 ######
